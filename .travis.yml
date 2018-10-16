@@ -33,8 +33,7 @@ before_install:
   - export OJDK_TAG=`git describe --exact-match --tags HEAD`
   - if [ -z ${OJDK_TAG} ] ; then exit 1 ; fi
   - echo ${OJDK_TAG}
-    #- export OJDK_UPDATE=`echo ${OJDK_TAG} | sed 's/\./ /g' | sed 's/+/ /' | awk '{print $3}'`
-  - export OJDK_UPDATE=0
+  - export OJDK_UPDATE=`echo ${OJDK_TAG} | sed 's/\./ /g' | sed 's/+/ /' | awk '{print $3}'`
   - echo ${OJDK_UPDATE}
   - export OJDK_BUILD=`echo ${OJDK_TAG} | sed 's/+/ /' | awk '{print $2}'`
   - echo ${OJDK_BUILD}
