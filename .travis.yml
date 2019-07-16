@@ -67,6 +67,7 @@ install:
             libXinerama-devel
             libXt-devel
             libXtst-devel
+            libXrandr-devel
             libXrender-devel
             xorg-x11-proto-devel
             elfutils-libelf-devel
