@@ -1,7 +1,7 @@
 OpenJDK 11 Linux builds
 =======================
 
-[![travis](https://travis-ci.org/ojdkbuild/contrib_jdk11u-ci.svg?branch=jdk-11.0.9.1%2B1)](https://travis-ci.org/ojdkbuild/contrib_jdk11u-ci/builds)
+[![travis](https://travis-ci.org/ojdkbuild/contrib_jdk11u-ci.svg?branch=jdk-11.0.10%2B9)](https://travis-ci.org/ojdkbuild/contrib_jdk11u-ci/builds)
 
 OpenJDK 11 "vanilla" builds done on Travis CI - [downloads](https://github.com/ojdkbuild/contrib_jdk11u-ci/releases).
 
