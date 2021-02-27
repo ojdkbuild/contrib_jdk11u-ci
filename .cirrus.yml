@@ -58,7 +58,7 @@ task:
             --with-vendor-url=https://github.com/ojdkbuild \
             --with-vendor-bug-url=https://github.com/ojdkbuild/ojdkbuild/issues \
             --with-vendor-vm-bug-url=https://github.com/ojdkbuild/ojdkbuild/issues \
-            --with-num-cores=2
+            --with-num-cores=1
     cd /build && make images LOG=info
     mv /build/images/jdk /build/${OJDK_IMAGE}
     cd /build && zip -qyr9 ${OJDK_IMAGE}.zip ${OJDK_IMAGE}
