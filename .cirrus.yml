@@ -40,7 +40,8 @@ task:
     mv jdk11u-${OJDK_TAG} /jdk11u
 
     # build
-    cd /opt && bash /jdk11u/configure \
+    mkdir /build
+    cd /build && bash /jdk11u/configure \
             --enable-unlimited-crypto=yes \
             --disable-warnings-as-errors \
             --disable-hotspot-gtest \
@@ -58,13 +59,13 @@ task:
             --with-vendor-bug-url=https://github.com/ojdkbuild/ojdkbuild/issues \
             --with-vendor-vm-bug-url=https://github.com/ojdkbuild/ojdkbuild/issues \
             --with-num-cores=2
-    cd /opt && make images LOG=info
-    mv /opt/images/jdk /opt/${OJDK_IMAGE}
-    cd /opt && zip -qyr9 ${OJDK_IMAGE}.zip ${OJDK_IMAGE}
-    mkdir /opt/dist
-    mv /opt/${OJDK_IMAGE}.zip /opt/dist/${OJDK_IMAGE}.zip
-    cd /opt/dist && sha256sum ${OJDK_IMAGE}.zip > ${OJDK_IMAGE}.zip.sha256
+    cd /build && make images LOG=info
+    mv /build/images/jdk /build/${OJDK_IMAGE}
+    cd /build && zip -qyr9 ${OJDK_IMAGE}.zip ${OJDK_IMAGE}
+    mkdir /build/dist
+    mv /build/${OJDK_IMAGE}.zip /build/dist/${OJDK_IMAGE}.zip
+    cd /build/dist && sha256sum ${OJDK_IMAGE}.zip > ${OJDK_IMAGE}.zip.sha256
     # deploy
     curl -LO https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_amd64.tar.gz
     tar -xzf ghr_v0.13.0_linux_amd64.tar.gz
-    ./ghr_v0.13.0_linux_amd64/ghr -t ${GITHUB_TOKEN} -u ojdkbuild -r contrib_jdk11u-ci -c ${CIRRUS_CHANGE_IN_REPO} ${CIRRUS_TAG} /opt/dist
+    ./ghr_v0.13.0_linux_amd64/ghr -t ${GITHUB_TOKEN} -u ojdkbuild -r contrib_jdk11u-ci -c ${CIRRUS_CHANGE_IN_REPO} ${CIRRUS_TAG} /build/dist
