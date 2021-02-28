@@ -1,11 +1,11 @@
 OpenJDK 11 Linux builds
 =======================
 
-[![cirrus](https://api.cirrus-ci.com/github/ojdkbuild/contrib_jdk11u-ci.svg)](https://cirrus-ci.com/github/ojdkbuild/contrib_jdk11u-ci)
+[![cirrus](https://api.cirrus-ci.com/github/ojdkbuild/contrib_jdk11u-ci.svg?branch=jdk-11.0.10%2B9)](https://cirrus-ci.com/github/ojdkbuild/contrib_jdk11u-ci)
 
 OpenJDK 11 "vanilla" builds done on [Cirrus CI](https://cirrus-ci.org/) - [downloads](https://github.com/ojdkbuild/contrib_jdk11u-ci/releases).
 
-Builds are done in CentOS 6 containers for better compatibility with various Linux distributions.
+Builds are done in a CentOS 6 container for better compatibility with various Linux distributions.
 
 License information
 -------------------

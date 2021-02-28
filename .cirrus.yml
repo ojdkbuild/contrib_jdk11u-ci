@@ -67,6 +67,6 @@ task:
     mv /build/${OJDK_IMAGE}.zip /build/dist/${OJDK_IMAGE}.zip
     cd /build/dist && sha256sum ${OJDK_IMAGE}.zip > ${OJDK_IMAGE}.zip.sha256
     # deploy
-    curl -LO https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_amd64.tar.gz
-    tar -xzf ghr_v0.13.0_linux_amd64.tar.gz
-    ./ghr_v0.13.0_linux_amd64/ghr -t ${GITHUB_TOKEN} -u ojdkbuild -r contrib_jdk11u-ci -c ${CIRRUS_CHANGE_IN_REPO} ${CIRRUS_TAG} /build/dist
+    cd /build && curl -LO https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_amd64.tar.gz
+    cd /build && tar -xzf ghr_v0.13.0_linux_amd64.tar.gz
+    /build/ghr_v0.13.0_linux_amd64/ghr -t ${GITHUB_TOKEN} -u ojdkbuild -r contrib_jdk11u-ci -c ${CIRRUS_CHANGE_IN_REPO} ${CIRRUS_TAG} /build/dist
