@@ -34,10 +34,7 @@ task:
     export OJDK_BUILD=`echo ${OJDK_TAG} | sed 's/+/ /' | awk '{print $2}'`
     echo ${OJDK_BUILD}
     export OJDK_IMAGE=jdk-11.0.${OJDK_UPDATE}-ojdkbuild-linux-x64
-    curl -LO http://hg.openjdk.java.net/jdk-updates/jdk11u/archive/${OJDK_TAG}.tar.bz2
-    tar -xjf ${OJDK_TAG}.tar.bz2
-    rm ${OJDK_TAG}.tar.bz2
-    mv jdk11u-${OJDK_TAG} /jdk11u
+    git clone --depth 1 --branch ${OJDK_TAG} https://github.com/openjdk/jdk11u.git /jdk11u
 
     # build
     mkdir /build
