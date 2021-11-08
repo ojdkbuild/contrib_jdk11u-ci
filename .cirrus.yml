@@ -34,7 +34,12 @@ task:
     export OJDK_BUILD=`echo ${OJDK_TAG} | sed 's/+/ /' | awk '{print $2}'`
     echo ${OJDK_BUILD}
     export OJDK_IMAGE=jdk-11.0.${OJDK_UPDATE}-ojdkbuild-linux-x64
-    git clone --depth 1 --branch ${OJDK_TAG} https://github.com/openjdk/jdk11u.git /jdk11u
+    # warning: Remote branch jdk-11.0.13+8 not found in upstream origin, using HEAD instead
+    #git clone --depth 1 --branch ${OJDK_TAG} https://github.com/openjdk/jdk11u.git /jdk11u
+    git clone https://github.com/openjdk/jdk11u.git /jdk11u
+    pushd /jdk11u
+    git checkout ${OJDK_TAG}
+    popd
 
     # build
     mkdir /build
