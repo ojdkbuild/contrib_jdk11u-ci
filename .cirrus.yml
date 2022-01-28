@@ -39,6 +39,7 @@ task:
     git clone https://github.com/openjdk/jdk11u.git /jdk11u
     pushd /jdk11u
     git checkout ${OJDK_TAG}
+    rm -rf .git
     popd
 
     # build
